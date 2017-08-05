@@ -113,7 +113,8 @@ A.select a.deptno,a.ename, a.hiredate, a.sal from emp a where (a.deptno, a.hired
 
 
 3)find the employe with the highest sal from each dept?
-A.select a.ename,a.sal,a.deptno from emp a where (a.sal,a.deptno) in (select max(b.sal),b.deptno from emp b group by b.deptno)
+A.select a.ename,a.sal,a.deptno from emp a where (a.sal,a.deptno) in (select max(b.sal),b.deptno from emp b group by b.deptno); or
+   select d.dname,a.ename,a.sal,a.deptno from emp a inner join dept d on a.deptno=d.deptno where (a.sal,a.deptno) in (select max(b.sal),b.deptno from emp b group by b.deptno);
 
 4) find the names of the emp and his manager, who has the max term in the comapany?
 A.select e.ename, m.ename from emp e, (select b.empno, a.ename from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno and  e.hiredate=(select min(hiredate) from emp);
