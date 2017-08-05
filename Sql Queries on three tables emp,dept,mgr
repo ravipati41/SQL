@@ -121,3 +121,6 @@ A.select e.ename, m.ename from emp e, (select b.empno, a.ename from emp a , mgr 
 
 5)display the name of each employee and his tenure in the company?
 A. select ename,(sysdate-hiredate)/365 tenture from emp;
+
+6)find the employee,his salary , his manager, his managers salary where the employees salary is greater than his manager? 
+A. select e.ename,e.sal, m.ename,m.sal from emp e, (select b.empno, a.ename,a.sal from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno and e.sal>m.sal;
