@@ -127,3 +127,9 @@ A. select e.ename,e.sal, m.ename,m.sal from emp e, (select b.empno, a.ename,a.sa
 
 7)find the employee,his tenure in company , his manager, his managers tenure in company where the employees.
 A.select e.ename,(sysdate-e.hiredate)/365 emp_tenure, m.ename,(sysdate-m.hiredate)/365 mgr_tenure from emp e, (select b.empno, a.ename,a.hiredate from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno;
+
+8)find the employee,his tenure in company , his manager, his managers tenure in company where the employee's tenure  is greater than his manager's.
+A. select e.ename,(sysdate-e.hiredate)/365 emp_tenure, m.ename,(sysdate-m.hiredate)/365 mgr_tenure from emp e, (select b.empno, a.ename,a.hiredate from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno and e.hiredate<m.hiredate  ;
+
+9)find the employee,his salary, his tenure in company , his manager, his managers salry ,his managers tenure in company where the employees where the employee's tenure  is greater than his manager's and the employees salary is greater than his manager?
+A.select e.ename,e.sal,(sysdate-e.hiredate)/365 emp_tenure, m.ename,m.sal,(sysdate-m.hiredate)/365 mgr_tenure from emp e, (select b.empno,a.sal,a.ename,a.hiredate from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno  and  e.hiredate<m.hiredate and e.sal>m.sal ;
