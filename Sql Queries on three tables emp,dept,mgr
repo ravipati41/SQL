@@ -135,4 +135,4 @@ A. select e.ename,(sysdate-e.hiredate)/365 emp_tenure, m.ename,(sysdate-m.hireda
 A.select e.ename,e.sal,(sysdate-e.hiredate)/365 emp_tenure, m.ename,m.sal,(sysdate-m.hiredate)/365 mgr_tenure from emp e, (select b.empno,a.sal,a.ename,a.hiredate from emp a , mgr b where a.empno=b.mid) m where e.empno=m.empno  and  e.hiredate<m.hiredate and e.sal>m.sal ;
 
 10) display the job designations in the descending order of the hierarchy according to the mgr table?
-A. select e.job from emp e join mgr m on e.empno=m.empno order by m.mid desc;
+A. select e.job from emp e inner join mgr m on e.empno=m.empno order by m.mid desc;
