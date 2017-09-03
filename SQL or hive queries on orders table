@@ -1,0 +1,3 @@
+                      select count(order_id),year(order_date) from  data group by year(order_date) ;
+                      select product_id, sum(quantity) qty from data group by product_id having qty IN (select max(p.qty) from (select sum(quantity) qty from data group by product_id) p);
+                      
